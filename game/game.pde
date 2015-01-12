@@ -73,11 +73,9 @@ void draw(){
   if (steps > 2){
     steps = 0; 
   }
-  //there's a skip when the position hits 0 / 600
-  //find a way to reset without glitch
   if (position <= 0){
-    position = 600;
-  }else if (position >= 600){
+    position = 800;
+  }else if (position >= 800){
     position = 0;
   }
   
