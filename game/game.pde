@@ -1,7 +1,8 @@
-float x = 600;
+float position = 0;
+float currentSpot;
 float speed = 20;
 PImage[] right,left;
-int counter = 0;
+int steps = 0;
 PImage d;
 PImage a,b,c;
 int size;
@@ -52,29 +53,34 @@ void draw(){
 
 
 void draw(){
-  image(d, int(x), 0);
-  image(d.get(d.width-int(x), 0, int(x), d.height), 0, 0);
-  counter ++;
-    if (counter > 2){
-      counter = 0; 
-  }
+  image(d, int(position), 0);
+  image(d.get(d.width-int(position), 0, int(position), d.height), 0, 0);
   if (moveRight){
     xPos += 10;
-    image(right[counter], xPos, 450, 50, 50);
-    x -= speed;
+    image(right[steps], xPos, 450, 50, 50);
+    position -= speed;
+    currentSpot = position;
   } else if (moveLeft){
     xPos -= 10;
-    image(left[counter], xPos, 450, 50, 50);
-    x += speed;
+    image(left[steps], xPos, 450, 50, 50);
+    position += speed; 
+    currentSpot = position;
   } else {
     image(c, xPos, 450, 50, 50); 
-    x = speed;
+    position = currentSpot; 
   }
-  if (x <= 0){
-    x = 600; 
-  }else if (x >= 600){
-    x = 0;
+  steps ++;
+  if (steps > 2){
+    steps = 0; 
   }
+  //there's a skip when the position hits 0 / 600
+  //find a way to reset without glitch
+  if (position <= 0){
+    position = 600;
+  }else if (position >= 600){
+    position = 0;
+  }
+  
 }
 
 void keyPressed(){
