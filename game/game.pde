@@ -29,7 +29,7 @@ void setup(){
   c = loadImage("boystanding.png");
   frameRate(10);
   d = loadImage("forest.png");
-  //image(d, 0, 0);
+  image(d, 0, 0);
   moveLeft = false;
   moveRight = false;
   xPos = width/2;
@@ -68,6 +68,7 @@ void draw(){
     x += speed;
   } else {
     image(c, xPos, 450, 50, 50); 
+    x = speed;
   }
   if (x <= 0){
     x = 600; 
