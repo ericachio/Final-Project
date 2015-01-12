@@ -13,3 +13,5 @@ Thursday, January 8: Yesterday, we spent more time reading through Processing tu
 Friday, January 9: Today, we started offically coding the setup and background. 
 
 Sunday, January 11: Today, the background and character sprite was added. The background moves witht the character with some glitches. Have to figure that out. 
+
+Monday, January 12: The glitch in the background skip was fixed. The background was changed. New characters are to be added. The boundary to prevent the character from leaving the screen is to be fixed. We also made sure that Labidia's git shell worked flawflessly, which it did. 
