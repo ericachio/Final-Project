@@ -11,7 +11,7 @@ boolean moveLeft, moveRight;
 
 
 void setup(){ 
-  size(800,600);
+  size(1150,650);
   smooth();
   noStroke();
   a = loadImage("boyright.png");
@@ -29,7 +29,7 @@ void setup(){
   }
   c = loadImage("boystanding.png");
   frameRate(10);
-  d = loadImage("forest.png");
+  d = loadImage("background.png");
   image(d, 0, 0);
   moveLeft = false;
   moveRight = false;
@@ -74,8 +74,8 @@ void draw(){
     steps = 0; 
   }
   if (position <= 0){
-    position = 800;
-  }else if (position >= 800){
+    position = 1150;
+  }else if (position >= 1150){
     position = 0;
   }
   
