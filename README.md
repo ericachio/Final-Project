@@ -11,3 +11,5 @@ Wednesday, January 7: Today, we downloaded Processing and spent a good amount of
 Thursday, January 8: Yesterday, we spent more time reading through Processing tutorials and looked for different characters and background sprites to add onto our game. 
 
 Friday, January 9: Today, we started offically coding the setup and background. 
+
+Sunday, January 11: Today, the background and character sprite was added. The background moves witht the character with some glitches. Have to figure that out. 
