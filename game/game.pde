@@ -101,4 +101,4 @@ void keyReleased(){
  } 
 }
 
-//helloo
+//boundary. start screen. choose character. organize code and separate into classes
