@@ -1,8 +1,9 @@
 class player{
   
-  PImage[] right, left;
-  PImage a,b,c;
-  float gender;
+  PImage[] right, left; //to signify direction of character movement
+  PImage a,b,c; //for the different states of character
+  float gender; //for when there is the option of choosing gender
+  int size; //set to load character into arrays
   
   void start(){
     if (gender == 0){

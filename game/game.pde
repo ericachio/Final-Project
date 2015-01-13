@@ -1,9 +1,7 @@
 float position; //to mark position of looping picture
 float currentSpot; //to mark location of character;
 float speed = 20;
-int steps = 0;
-PImage d;
-int size;
+PImage background;
 boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
 player play;
@@ -15,17 +13,17 @@ void setup(){
   noStroke();
   frameRate(10);
   play = new player();
-  play.gender = 1;
+  play.gender = 1; //sets player as girl for testing
   play.start();
   move = new movement();
-  d = loadImage("background.png");
-  image(d, 0, 0);
+  background = loadImage("background.png");
+  image(background, 0, 0);
 }
 
 void draw(){
-  image(d, int(position), 0);
-  image(d.get(d.width-int(position), 0, int(position), d.height), 0, 0);
-        
+  //to loop background;
+  image(background, int(position), 0);
+  image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
   move.action(); // to move the character
   
 }
