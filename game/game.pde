@@ -5,35 +5,46 @@ PImage background;
 boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
 color currentColor;
+int level;
+boolean check = false;
+PImage boy, girl;
+
 player play;
 movement move;
-button menu;
+screens menu;
 
 void setup() { 
   size(1150, 650);
   smooth();
   noStroke();
-  frameRate(10);
-  menu = new button();
-  menu.startMenu();
+  frameRate(20);
+  background = loadImage("background.png");
+  image(background, 0, 0);
+  level = 0;
   play = new player();
-  play.gender = 1; //sets player as girl for testing
-  play.start();
+  menu = new screens();
+  menu.startMenu();
   move = new movement();
-  //background = loadImage("background.png");
-  //image(background, 0, 0);
 }
 
 
 void draw() {
-  //to loop background;
-  /*
- image(background, int(position), 0);
-   image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
-   
-   move.action(); // to move the character 
-   */
+  if (level == 0) { //start screen
+    update(mouseX, mouseY);
+    menu.clickGirl.display();
+    menu.clickBoy.display();
+    girl = loadImage("girlstanding.png");
+    boy = loadImage("boystanding.png");
+    image(girl, 505, 155);
+    image(boy, 615, 155);
+  } else if (level == 1) {
+    //to loop background;
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
+    move.action(); // to move the character
+  }
 }
+
 
 
 /*
@@ -65,6 +76,27 @@ void keyReleased() {
       moveRight = false;
     } else if (keyCode == UP) {
       moveUp = false;
+    }
+  }
+}
+
+//for buttons and menus
+void update(int x, int y) {
+  if (check == false) {
+    menu.clickGirl.update();
+    menu.clickBoy.update();
+  } else {
+    check = false;
+  }
+  if (mousePressed) {
+    if (menu.clickGirl.pressed()) {
+      play.gender = 1;
+      play.start();
+      level += 1;
+    } else if (menu.clickBoy.pressed()) {
+      play.gender = 0; 
+      play.start();
+      level += 1;
     }
   }
 }

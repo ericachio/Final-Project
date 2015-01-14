@@ -1,63 +1,16 @@
-class button {
-  int x, y;
-  int size;
-  color baseColor, highlightColor;
-  color currentColor;
-  boolean over = false;
-  boolean pressed = false;
-
-  void setup() {
-    size(1150, 600);
-    color baseColor = color (102);
-    currentColor = baseColor;
-    startMenu();
-  }
-
-  void update() {
-    if (over()) {
-      currentColor = highlightColor;
-    } else {
-      currentColor = baseColor;
-    }
-  }
-
-  boolean pressed() {
-    if (over) {
-      //locked = true;
-      return true;
-    } else {
-      //locked = false;
-      return false;
-    }
-  }
-  boolean overRect(int x, int y, int width, int height) {
-    if (mouseX >= x && mouseX <= x + width &&
-      mouseY >= y && mouseY <= y + height) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  void startMenu() {
-    textAlign(CENTER);
-    text("Start Game", 575, 100); 
-    color buttonColor = color (0);
-    color highlight = color(153);
-    rectButton(575, 200, 40, buttonColor, highlight);
-    display();
-    rectButton(600, 200, 40, buttonColor, highlight);
-    display();
-  }
-  void rectButton(int ix, int iy, int isize, color icolor, color ihighlight) {
+class button extends screens {
+  
+  button(int ix, int iy, int iwidth, int iheight) {
     x = ix;
     y = iy;
-    size = isize;
-    baseColor = icolor;
-    highlightColor = ihighlight;
+    width = iwidth;
+    height = iheight;
+    color baseColor = color (225);
     currentColor = baseColor;
+    color highlight = color(153);
   } 
   boolean over() {
-    if (overRect(x, y, size, size)) {
+    if (overButton(x, y, width, height)) {
       over = true;
       return true;
     } else {
@@ -68,7 +21,7 @@ class button {
   void display() {
     stroke(225);
     fill(currentColor);
-    rect(x, y, size, size);
+    rect(x, y, width, height);
   }
 }
 
