@@ -6,36 +6,31 @@ boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
 player play;
 movement move;
-screen sc;
 
 void setup() { 
   size(1150, 650);
   smooth();
   noStroke();
   frameRate(10);
-  sc = new screen();
-  sc.startMenu();
-  /*
   play = new player();
-   play.gender = 1; //sets player as girl for testing
-   play.start();
-   move = new movement();
-   background = loadImage("background.png");
-   image(background, 0, 0);
-   */
+  play.gender = 1; //sets player as girl for testing
+  play.start();
+  move = new movement();
+  background = loadImage("background.png");
+  image(background, 0, 0);
 }
 
 
-void draw(){
- //to loop background;
- /*
+void draw() {
+  //to loop background;
+  /*
  image(background, int(position), 0);
- image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
- 
- move.action(); // to move the character 
- */
- }
- 
+   image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
+   
+   move.action(); // to move the character 
+   */
+}
+
 
 /*
 void randomM(){
