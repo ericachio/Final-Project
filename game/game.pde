@@ -54,7 +54,5 @@ void keyReleased(){
   } 
 }
 
-<<<<<<< HEAD
+
 //boundary. start screen. choose character. organize code and separate into classes
-=======
->>>>>>> efd13851674e5658782d4d7793bfb87f13a5136b
