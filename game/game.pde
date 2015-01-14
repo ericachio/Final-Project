@@ -6,6 +6,7 @@ boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
 player play;
 movement move;
+enemy monster;
 
 void setup(){ 
   size(1150,650);
@@ -27,7 +28,10 @@ void draw(){
   move.action(); // to move the character
   
 }
-
+void randomM(){
+  monster= new enemy();
+  monster.typeM=0;//ghost
+}//need to add random way of choosing which monster the player will battle. possibly allow them to choose. monsters will have the same constant motion. player can not move when monster appears.
 
 //to control actions of the character 
 void keyPressed(){
