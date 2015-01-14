@@ -5,6 +5,7 @@ class monster{
   PImage al,d
   int size; //set to load character into arrays?
   float typeM;
+  
   void start(){
 
 //GHOST    
@@ -50,7 +51,18 @@ if(typeM==2){
   alive= new PImage[4];
   //52 wide, 48 tall
   
-  //add for functions
+  for(int n=0; n<5; n++){
+    alive[n]=get(size, 0, 52, 48);
+    size+= 52;
+  }
+  dead= new PImage[3];
+  for(int n=0; n<4; n++){
+    dead[n]=get(size+208; 0, 52,48);
+    size+=52;
+  }
+}
+  }
+}
   
   
   
