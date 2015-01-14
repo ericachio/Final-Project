@@ -4,20 +4,24 @@ float speed = 20;
 PImage background;
 boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
+color currentColor;
 player play;
 movement move;
+button menu;
 
 void setup() { 
   size(1150, 650);
   smooth();
   noStroke();
   frameRate(10);
+  menu = new button();
+  menu.startMenu();
   play = new player();
   play.gender = 1; //sets player as girl for testing
   play.start();
   move = new movement();
-  background = loadImage("background.png");
-  image(background, 0, 0);
+  //background = loadImage("background.png");
+  //image(background, 0, 0);
 }
 
 
