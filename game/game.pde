@@ -27,8 +27,8 @@ void setup() {
   menu.startMenu();
   move = new movement();
   mon = new monsters();
-  mon.typeM = random(2);
-  mon.start();
+      mon.typeM = random(3);
+    mon.start();
 }
 
 
@@ -46,6 +46,7 @@ void draw() {
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
     move.action(); // to move the character
+
     mon.action();
   }
 }

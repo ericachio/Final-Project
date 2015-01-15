@@ -34,13 +34,22 @@ class monsters {
         }
       }
     }
+    if (typeM >= 2 && typeM < 3) {
+      ccake = loadImage("ox.png");
+      //138 each, 111 high
+      walk = new PImage[5];
+      for (int n = 0; n < 5; n++) {
+        walk[n] = ccake.get(size1, 0, 137, 111);
+        size1 += 139;
+      }
+    }
     //other monsters
   }
 
   void action() {
     image(mon.walk[steps], position, 350, 200, 200); 
     steps ++;
-    if (steps > walk.length - 1) {
+    if (steps >= walk.length - 1) {
       steps = 0;
     }
   }
