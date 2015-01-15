@@ -8,7 +8,6 @@ color currentColor;
 int level;
 boolean check = false;
 PImage boy, girl;
-int steps;
 
 player play;
 movement move;
