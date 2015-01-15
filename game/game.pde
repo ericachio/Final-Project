@@ -4,69 +4,98 @@ float speed = 20;
 PImage background;
 boolean moveLeft, moveRight, moveUp;
 float xPos, yPos;
+color currentColor;
+int level;
+boolean check = false;
+PImage boy, girl;
+
 player play;
 movement move;
-monsters mons;
+screens menu;
+monsters mon;
 
-void setup(){ 
-  size(1150,650);
+void setup() { 
+  size(1150, 650);
   smooth();
   noStroke();
   frameRate(10);
-  play = new player();
-  play.gender = 1; //sets player as girl for testing
-  play.start();
-  move = new movement();
   background = loadImage("background.png");
   image(background, 0, 0);
-}
 
-void draw(){
-  //to loop background;
-  image(background, int(position), 0);
-  image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
-  move.action(); // to move the character
-  
-}
-
-void randomM(){
-  typeM=random(3);
-  mons= new monsters();
-  mons.typeM(typeM);
-  mons.start();
-  
-  
+  level = 0;
+  play = new player();
+  menu = new screens();
+  menu.startMenu();
+  move = new movement();
+  mon = new monsters();
+  mon.typeM = 0;
+  mon.start();
 }
 
 
-//need to add random way of choosing which monster the player will battle. possibly allow them to choose. monsters will have the same constant motion. player can not move when monster appears.
-
-//to control actions of the character 
-void keyPressed(){
-  if (key == CODED){
-    if(keyCode == LEFT){
-      moveLeft = true; 
-      }else if (keyCode == RIGHT){
-      moveRight = true;
-    }else if (keyCode == UP){
-      moveUp = true;
-      }
+void draw() {
+  if (level == 0) { //start screen
+    update(mouseX, mouseY);
+    menu.clickGirl.display();
+    menu.clickBoy.display();
+    girl = loadImage("girlstanding.png");
+    boy = loadImage("boystanding.png");
+    image(girl, 505, 155);
+    image(boy, 615, 155);
+  } else if (level == 1) {
+    //to loop background;
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
+    move.action(); // to move the character
+    mon.action();
   }
 }
 
-void keyReleased(){
-  if (key == CODED){
-    if(keyCode == LEFT){       
-      moveLeft = false; 
-      }else if (keyCode == RIGHT){
-      moveRight = false;
-    }else if (keyCode == UP){
-      moveUp = false;
+
+
+//to control actions of the character 
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == LEFT) {
+      moveLeft = true;
+    } else if (keyCode == RIGHT) {
+      moveRight = true;
+    } else if (keyCode == UP) {
+      moveUp = true;
     }
-  } 
+  }
 }
 
-<<<<<<< HEAD
-//boundary. start screen. choose character. organize code and separate into classes
-=======
->>>>>>> efd13851674e5658782d4d7793bfb87f13a5136b
+void keyReleased() {
+  if (key == CODED) {
+    if (keyCode == LEFT) {       
+      moveLeft = false;
+    } else if (keyCode == RIGHT) {
+      moveRight = false;
+    } else if (keyCode == UP) {
+      moveUp = false;
+    }
+  }
+}
+
+//for buttons and menus
+void update(int x, int y) {
+  if (check == false) {
+    menu.clickGirl.update();
+    menu.clickBoy.update();
+  } else {
+    check = false;
+  }
+  if (mousePressed) {
+    if (menu.clickGirl.pressed()) {
+      play.gender = 1;
+      play.start();
+      level += 1;
+    } else if (menu.clickBoy.pressed()) {
+      play.gender = 0; 
+      play.start();
+      level += 1;
+    }
+  }
+}
+
