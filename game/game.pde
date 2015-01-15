@@ -21,14 +21,13 @@ void setup() {
   frameRate(10);
   background = loadImage("background.png");
   image(background, 0, 0);
-
   level = 0;
   play = new player();
   menu = new screens();
   menu.startMenu();
   move = new movement();
   mon = new monsters();
-  mon.typeM = 0;
+  mon.typeM = random(2);
   mon.start();
 }
 
