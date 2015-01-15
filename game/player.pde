@@ -12,13 +12,13 @@ class player {
       c = loadImage("boyleft.png");
       right = new PImage[3];
       for (int i = 0; i < 3; i++) {
-        right[i] = b.get(size, 0, 30, 32);
+        right[i] = b.get(size, 0, 31, 32);
         size += 30;
       }
       size = 0;
       left = new PImage[3];
       for (int i = 0; i < 3; i++) {
-        left[i] = c.get(size, 0, 30, 32);
+        left[i] = c.get(size, 0, 31, 32);
         size += 30;
       }
     } else if (gender == 1) {

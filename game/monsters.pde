@@ -1,59 +1,34 @@
-class monster {
+class monsters {
 
-  PImage[] alive, dead; //2 arrays for dead or alive?
-  PImage ghost, octopus, watermelon; //for the different mmonsters
-  PImage al, d;
-  int size; //set to load character into arrays?
+  PImage[] walk; //2 arrays for dead or alive?
+  PImage dragon; //for the different monsters
+  PImage d;
+  int size1, size2; //set to load character into arrays
   float typeM;
-  void start() {
 
-    //GHOST    
-    if (typeM==0) {
-      ghost=loadImage("ghost.png");
-      alive = new PImage[2];
-      //50 pixels each. 60 high
 
-      for (int n=0; n<3; n++) {
-        alive[n]=get(size, 0, 50, 60);
-        size+=50;
-      }
-      dead= new PImage[2];
-      for (int n=0; n<3; n++) {
-        dead[n]=get(size, 0, 50, 60);
-        size+=50;
-      }
-    }
-
-    //OCTOPUS
-    if (typeM==1) {
-      octopus=loadImage("Octopus.png");
-      alive=new PImage[2];
-      //46 wide, 55 tall
-
-      for (int n=0; n<3; n++) {
-        alive[n]=get(size, 55, 46, 55);
-        size+=46;
-      }
-      dead=new PImage[4];
-      for (int n=0; n<5; n++) {
-        if (n==4) {
-          dead[4]=get(0, 0, 46, 55);
-        } else {
-          dead[n]=get(size, 55, 46, 55);
-          size+=46;
+  void start() {   
+    if (typeM == 0) {
+      dragon = loadImage("dragon.png");
+      walk = new PImage[6];
+      //80 pixels each. 51 high
+      for (int n = 0; n < 6; n++) {
+        walk[n] = dragon.get(size1, 0, 80, 51);
+        size1 += 80;
+        if (n > 2) {
+          walk[n] = dragon.get(size2, 51, 80, 51);
+          size2 += 80;
         }
       }
     }
+    //other monsters
+  }
 
-
-
-    //WATERMELON
-    if (typeM==2) {
-      watermelon=loadImage("Watermelon.png");
-      alive= new PImage[4];
-      //52 wide, 48 tall
-
-      //add for functions
+  void action() {
+    image(mon.walk[steps], position, 300, 200, 200); 
+    steps ++;
+    if (steps > walk.length - 1) {
+      steps = 0;
     }
   }
 }

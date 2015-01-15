@@ -8,23 +8,29 @@ color currentColor;
 int level;
 boolean check = false;
 PImage boy, girl;
+int steps;
 
 player play;
 movement move;
 screens menu;
+monsters mon;
 
 void setup() { 
   size(1150, 650);
   smooth();
   noStroke();
-  frameRate(20);
+  frameRate(10);
   background = loadImage("background.png");
   image(background, 0, 0);
+
   level = 0;
   play = new player();
   menu = new screens();
   menu.startMenu();
   move = new movement();
+  mon = new monsters();
+  mon.typeM = 0;
+  mon.start();
 }
 
 
@@ -42,18 +48,9 @@ void draw() {
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
     move.action(); // to move the character
+    mon.action();
   }
 }
-
-
-
-/*
-void randomM(){
- monster= new enemy();
- monster.typeM=0;//ghost
- }//need to add random way of choosing which monster the player will battle. possibly allow them to choose. monsters will have the same constant motion. player can not move when monster appears.
- */
-
 
 //to control actions of the character 
 void keyPressed() {
