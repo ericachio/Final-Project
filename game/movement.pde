@@ -32,6 +32,9 @@ class movement{
       }
     }
     
-    
-    
+ void MonsterAction(){
+   
+     image(mons.alive[0], 580, 450,75,75);
+     //150x600 is bg
+ }
 }
