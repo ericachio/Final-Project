@@ -9,6 +9,7 @@ class screens {
   button clickGirl;
   button clickBoy;
   button clickStart;
+  button clickAttack;
 
   void update() {
     if (over()) {
@@ -70,8 +71,18 @@ class screens {
   void fightScreen(){
     background = loadImage("background.png");
     image(background, 0, 0);
+    showHP();
     mon.fightPosition();
     play.fightPosition();
+    textAlign(CENTER);
+    textSize(30);
+    text("What are you going to do?", 575, 100);
+    textSize(13);
+    clickAttack = new button(555, 125, 40, 20);
+    clickAttack.display();
+    fill(0);
+    text("Attack", 575, 140);
+    
     
   }
 }

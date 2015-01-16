@@ -3,7 +3,7 @@ class monsters {
   PImage[] walk; 
   PImage scake, ccake; //for the different monsters
   PImage d;
-  int size1, size2; //set to load character into arrays
+  int size1, size2, steps; //set to load character into arrays
   float typeM;
 
   
