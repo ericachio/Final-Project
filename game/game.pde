@@ -8,7 +8,8 @@ color currentColor;
 int level;
 boolean check = false;
 PImage boy, girl;
-float inFight, inAttack;
+boolean inFight = false;
+boolean   inAttack = false;;
 int HP;
 
 player play;
@@ -40,25 +41,21 @@ void setup() {
 
 void draw() {
   if (level == 0) { //start screen
-   update1(mouseX, mouseY);
-   menu.clickGirl.display();
-   menu.clickBoy.display();
-   girl = loadImage("girlstanding.png");
-   boy = loadImage("boystanding.png");
-   image(girl, 505, 155);
-   image(boy, 615, 155);
-   } else if (level == 1) {
-   //to loop background;
-   image(background, int(position), 0);
-   image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-   showHP();
-   mon.action();
-   game.encounter();
-   if (inAttack == 1){
-      game.effects(); 
-   }
-   
-   }
+    update1(mouseX, mouseY);
+    menu.clickGirl.display();
+    menu.clickBoy.display();
+    girl = loadImage("girlstanding.png");
+    boy = loadImage("boystanding.png");
+    image(girl, 505, 155);
+    image(boy, 615, 155);
+  } else if (level == 1) {
+    //to loop background;
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    showHP();
+    mon.action();
+    game.encounter();
+  }
 }
 
 
@@ -72,7 +69,7 @@ void keyPressed() {
       moveRight = true;
     } else if (keyCode == UP) {
       moveUp = true;
-    }
+    } 
   }
 }
 
@@ -109,7 +106,7 @@ void update1(int x, int y) {
     }
   }
 }
- 
+
 //to start game
 void update2(int x, int y) {
   if (check == false) {
@@ -119,12 +116,11 @@ void update2(int x, int y) {
   }
   if (mousePressed) {
     if (menu.clickStart.pressed()) {
-      inFight = 1;
+      inFight = true;
     }
   }
 }
 
-//to pick move
 void update3(int x, int y) {
   if (check == false) {
     menu.clickAttack.update();
@@ -133,13 +129,13 @@ void update3(int x, int y) {
   }
   if (mousePressed) {
     if (menu.clickAttack.pressed()) {
-      inAttack = 1;
+      inAttack = true;
     }
   }
 }
 
-void showHP(){
+void showHP() {
   text("HP:", 50, 50);
- text(HP, 75, 50); 
+  text(HP, 75, 50);
 }
 

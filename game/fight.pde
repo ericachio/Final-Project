@@ -10,9 +10,8 @@ class fight {
       menu.startFight();
       update2(mouseX, mouseY);
       move.stop();
-      if (inFight == 1) {
+      if (inFight == true) {
         battle();
-        update3(mouseX, mouseY);
       }
     } else {
       move.action();
@@ -21,6 +20,10 @@ class fight {
 
   void battle() {
     menu.fightScreen();
+    update3(mouseX, mouseY);
+    if (inAttack == true) {
+      effects();
+    }
   }
 
   void loadEffects() {
@@ -59,5 +62,6 @@ class fight {
       steps3 = 0;
     }
   }
+  
 }
 

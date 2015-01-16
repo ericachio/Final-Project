@@ -5,7 +5,7 @@ class screens {
   boolean pressed = false;
   PImage boy, girl;
   color currentColor;
-  
+
   button clickGirl;
   button clickBoy;
   button clickStart;
@@ -19,8 +19,8 @@ class screens {
     }
   }
 
-  boolean over(){
-   return true; 
+  boolean over() {
+    return true;
   }
 
   boolean pressed() {
@@ -54,10 +54,9 @@ class screens {
     image(boy, 620, 155);
     clickBoy = new button(610, 150, 40, 40);
     clickBoy.display();
-    
   }
-  
-  void startFight(){
+
+  void startFight() {
     textAlign(CENTER);
     textSize(30);
     text("You've Encountered A Monster", 575, 100); 
@@ -67,24 +66,20 @@ class screens {
     fill(0);
     text("Start", 575, 140);
   }
-  
-  void fightScreen(){
+
+  void fightScreen() {
     background = loadImage("background.png");
     image(background, 0, 0);
+    textAlign(CENTER);
+    textSize(30);
+    text("What are you going to do?", 575, 125);
+    textSize(13);
+    clickAttack = new button(555, 150, 40, 20);
+    clickAttack.display();
+    update3(mouseX, mouseY);
     showHP();
     mon.fightPosition();
     play.fightPosition();
-    textAlign(CENTER);
-    textSize(30);
-    text("What are you going to do?", 575, 100);
-    textSize(13);
-    clickAttack = new button(555, 125, 40, 20);
-    clickAttack.display();
-    fill(0);
-    text("Attack", 575, 140);
-    
-    
   }
 }
-
 
