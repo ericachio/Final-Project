@@ -53,6 +53,8 @@ void draw() {
   }
 }
 
+
+
 //to control actions of the character 
 void keyPressed() {
   if (key == CODED) {

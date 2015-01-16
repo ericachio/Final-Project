@@ -5,7 +5,8 @@ class monsters {
   PImage d;
   int size1, size2; //set to load character into arrays
   float typeM;
-  int steps;
+
+  
 
   void start() {   
     if (typeM < 1) {
@@ -62,4 +63,5 @@ class monsters {
     }
   }
 }
+
 

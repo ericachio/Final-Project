@@ -29,6 +29,7 @@ class movement {
     } else if (position >= 1150) {
       position = 0;
     }
+<<<<<<< HEAD
   }
 
   void stop() {
@@ -37,5 +38,13 @@ class movement {
     moveLeft = false;
     moveRight = false;
   }
+=======
+    
+ void MonsterAction(){
+   
+     image(mons.alive[0], 580, 450,75,75);
+     //150x600 is bg
+ }
+>>>>>>> c19a5e392037b59bbbe4819a992f08c32f46f6c5
 }
 
