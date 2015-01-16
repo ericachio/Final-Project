@@ -8,11 +8,13 @@ color currentColor;
 int level;
 boolean check = false;
 PImage boy, girl;
+float inFight;
 
 player play;
 movement move;
 screens menu;
 monsters mon;
+fight game;
 
 void setup() { 
   size(1150, 650);
@@ -27,14 +29,15 @@ void setup() {
   menu.startMenu();
   move = new movement();
   mon = new monsters();
-      mon.typeM = random(3);
-    mon.start();
+  mon.typeM = random(3);
+  mon.start();
+  game = new fight();
 }
 
 
 void draw() {
   if (level == 0) { //start screen
-    update(mouseX, mouseY);
+    update1(mouseX, mouseY);
     menu.clickGirl.display();
     menu.clickBoy.display();
     girl = loadImage("girlstanding.png");
@@ -44,10 +47,9 @@ void draw() {
   } else if (level == 1) {
     //to loop background;
     image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);     
-    move.action(); // to move the character
-
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     mon.action();
+    game.encounter();
   }
 }
 
@@ -77,7 +79,7 @@ void keyReleased() {
 }
 
 //for buttons and menus
-void update(int x, int y) {
+void update1(int x, int y) {
   if (check == false) {
     menu.clickGirl.update();
     menu.clickBoy.update();
@@ -93,6 +95,21 @@ void update(int x, int y) {
       play.gender = 0; 
       play.start();
       level += 1;
+    } else if (menu.clickStart.pressed()) {
+      menu.fightScreen();
+    }
+  }
+}
+
+void update2(int x, int y) {
+  if (check == false) {
+    menu.clickStart.update();
+  } else {
+    check = false;
+  }
+  if (mousePressed) {
+    if (menu.clickStart.pressed()) {
+      inFight = 1;
     }
   }
 }

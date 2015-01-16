@@ -53,5 +53,13 @@ class monsters {
       steps = 0;
     }
   }
+
+  void fightPosition() {
+    image(mon.walk[steps], 900, 350, 200, 200);
+    steps ++;
+    if (steps >= walk.length - 1) {
+      steps = 0;
+    }
+  }
 }
 

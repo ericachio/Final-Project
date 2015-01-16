@@ -8,6 +8,7 @@ class screens {
   
   button clickGirl;
   button clickBoy;
+  button clickStart;
 
   void update() {
     if (over()) {
@@ -52,6 +53,25 @@ class screens {
     image(boy, 620, 155);
     clickBoy = new button(610, 150, 40, 40);
     clickBoy.display();
+    
+  }
+  
+  void startFight(){
+    textAlign(CENTER);
+    textSize(30);
+    text("You've Encountered A Monster", 575, 100); 
+    textSize(15);
+    clickStart = new button(555, 125, 40, 20);
+    clickStart.display();
+    fill(0);
+    text("Start", 575, 140);
+  }
+  
+  void fightScreen(){
+    background = loadImage("background.png");
+    image(background, 0, 0);
+    mon.fightPosition();
+    play.fightPosition();
     
   }
 }

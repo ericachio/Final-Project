@@ -38,5 +38,10 @@ class player {
       size += 30;
     }
   }
+  
+  void fightPosition(){
+    image(a, 100, 450, 75, 75);
+  }
+  
 }
 
