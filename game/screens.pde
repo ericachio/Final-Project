@@ -77,7 +77,7 @@ class screens {
     clickAttack = new button(555, 150, 40, 20);
     clickAttack.display();
     update3(mouseX, mouseY);
-    showHP();
+    play.showHP();
     mon.fightPosition();
     play.fightPosition();
   }

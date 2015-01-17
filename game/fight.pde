@@ -4,6 +4,7 @@ class fight {
   PImage[] attack, hit;
   PImage at, hi;
   int size1, size2, steps2, steps3;
+  int skill, monSkill;
 
   void encounter() {
     if (position < 650 && position > 100) {
@@ -24,6 +25,13 @@ class fight {
     if (inAttack == true) {
       effects();
     }
+  }
+
+  void hit() {
+    float y = random(1);
+    int z = (int)random(100);
+    float x = skill/monSkill;
+    
   }
 
   void loadEffects() {
@@ -62,6 +70,5 @@ class fight {
       steps3 = 0;
     }
   }
-  
 }
 

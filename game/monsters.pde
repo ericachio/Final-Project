@@ -5,10 +5,13 @@ class monsters {
   PImage d;
   int size1, size2, steps; //set to load character into arrays
   float typeM;
+  int monHP, monSkill;
 
   
 
   void start() {   
+    monHP = 100;
+    monSkill = 50;
     if (typeM < 1) {
       scake = loadImage("strawberrycake.png");
       walk = new PImage[13];

@@ -10,7 +10,6 @@ boolean check = false;
 PImage boy, girl;
 boolean inFight = false;
 boolean   inAttack = false;;
-int HP;
 
 player play;
 movement move;
@@ -35,7 +34,6 @@ void setup() {
   mon.start();
   game = new fight();
   game.loadEffects();
-  HP = 100;
 }
 
 
@@ -52,7 +50,7 @@ void draw() {
     //to loop background;
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    showHP();
+    play.showHP();
     mon.action();
     game.encounter();
   }
@@ -132,10 +130,5 @@ void update3(int x, int y) {
       inAttack = true;
     }
   }
-}
-
-void showHP() {
-  text("HP:", 50, 50);
-  text(HP, 75, 50);
 }
 
