@@ -21,3 +21,5 @@ Tuesday, January 13: The sprits of the monsters were cropped. Monster class was 
 Wednesday, January 14: The monster class is up and running and is matched with the position variable so that it moves towards the character. But the same character at every loop? lame... need to randomize monster appearances. Need to create a contact class - to start a new frame/fight. The start menu works and button class is now readily avilable. HP and items are needed to be created. Jump up will be utlizied to collect hp coins and items. (see if there's a jump twice - double the height?)
 
 Thursday, January 15: The encounter with monsters now lead to a new battle screen with the button start. There is to be a menu in which the player can choose to attack. Perhaps a sprite with fighting for the characters needs to be found? 
+
+Friday, January 16: The battle screen contains option to attack, which does so arbitrarily, which will be fixed. Attack sprites are added and hp and skill set added too. 
