@@ -4,12 +4,16 @@ class fight {
   PImage[] attack, hit;
   PImage at, hi;
   int size1, size2, steps2, steps3;
-  int skill, monSkill;
+  float damage;
+  float wHP;
+
 
   void encounter() {
     if (position < 650 && position > 100) {
       menu.startFight();
       update2(mouseX, mouseY);
+      menu.clickStart.display();
+      text("Start", 575, 140);
       move.stop();
       if (inFight == true) {
         battle();
@@ -22,17 +26,23 @@ class fight {
   void battle() {
     menu.fightScreen();
     update3(mouseX, mouseY);
+    menu.clickAttack.display();
+    text("Attack", 575, 165);
     if (inAttack == true) {
+      damage = random(10);
+      mon.monHP = mon.monHP - damage;
+      //hit(mon.monHP);
       effects();
+      inAttack = false;
     }
   }
 
-  void hit() {
-    float y = random(1);
-    int z = (int)random(100);
-    float x = skill/monSkill;
-    
+  void hit(float num) {
+    text(damage, 600, 600);
+    num = damage - num;
   }
+
+
 
   void loadEffects() {
     at = loadImage("playerattack.png");

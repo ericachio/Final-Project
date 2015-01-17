@@ -5,9 +5,7 @@ class monsters {
   PImage d;
   int size1, size2, steps; //set to load character into arrays
   float typeM;
-  int monHP, monSkill;
-
-  
+  float monHP, monSkill;
 
   void start() {   
     monHP = 100;
@@ -64,6 +62,12 @@ class monsters {
     if (steps >= walk.length - 1) {
       steps = 0;
     }
+    showHP();
+  }
+  
+    void showHP() {
+    text("HP:", 1000, 50);
+    text(monHP, 1050, 50);
   }
 }
 

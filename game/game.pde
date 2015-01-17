@@ -50,7 +50,6 @@ void draw() {
     //to loop background;
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    play.showHP();
     mon.action();
     game.encounter();
   }
