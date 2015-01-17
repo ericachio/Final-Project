@@ -6,6 +6,8 @@ class fight {
   int size1, size2, steps2, steps3;
   float damage;
   float wHP;
+  int lastTime = 0;
+
 
 
   void encounter() {
@@ -13,6 +15,7 @@ class fight {
       menu.startFight();
       update2(mouseX, mouseY);
       menu.clickStart.display();
+      fill(0);
       text("Start", 575, 140);
       move.stop();
       if (inFight == true) {
@@ -27,22 +30,37 @@ class fight {
     menu.fightScreen();
     update3(mouseX, mouseY);
     menu.clickAttack.display();
+    fill(0);
     text("Attack", 575, 165);
+    boolean go = true;
+    int num = 0;
     if (inAttack == true) {
-      damage = random(10);
-      mon.monHP = mon.monHP - damage;
-      //hit(mon.monHP);
+      num = 1;
+      lastTime = millis();
+    } else if (inAttack == false) {
+      num = 0;
+    }
+    actHit(num);
+  }
+
+  void actHit(int num) {
+    if (num == 1) {
+      hit(play.skill);
       effects();
+      getHit(mon.monSkill);
       inAttack = false;
     }
   }
 
-  void hit(float num) {
-    text(damage, 600, 600);
-    num = damage - num;
+  void hit(float skill) {
+    damage = random(play.skill);
+    mon.monHP = mon.monHP - damage;
   }
 
-
+  void getHit(float skill) {
+    damage = random(mon.monSkill);
+    play.HP = play.HP - damage;
+  }
 
   void loadEffects() {
     at = loadImage("playerattack.png");

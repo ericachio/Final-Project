@@ -58,23 +58,26 @@ class screens {
 
   void startFight() {
     textAlign(CENTER);
-    fill(225);
+    fill(0);
     textSize(30);
     text("You've Encountered A Monster", 575, 100); 
     textSize(15);
     clickStart = new button(555, 125, 40, 20);
     clickStart.display();
+    fill(0);
   }
 
   void fightScreen() {
     background = loadImage("background.png");
     image(background, 0, 0);
     textAlign(CENTER);
+    fill(0);
     textSize(30);
     text("What are you going to do?", 575, 125);
     textSize(15);
     clickAttack = new button(555, 150, 40, 20);
     clickAttack.display();
+    fill(0);
     play.showHP();
     mon.showHP();
     mon.fightPosition();
