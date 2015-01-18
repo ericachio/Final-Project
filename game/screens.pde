@@ -58,7 +58,7 @@ class screens {
 
   void startFight() {
     textAlign(CENTER);
-    fill(225);
+    fill(0);
     textSize(30);
     text("You've Encountered A Monster!", 575, 100); 
     textSize(15);
@@ -67,12 +67,14 @@ class screens {
     text("Click to start your battle", 600, 120);
     textSize(5);
     clickStart.display();
+    fill(0);
   }
 
   void fightScreen() {
     background = loadImage("background.png");
     image(background, 0, 0);
     textAlign(CENTER);
+    fill(0);
     textSize(30);
     text("What are you going to do?", 575, 125);
     textSize(15);
@@ -80,6 +82,7 @@ class screens {
     fill(0,0,0);
     text("Attack!",570,140);
     clickAttack.display();
+    fill(0);
     play.showHP();
     mon.showHP();
     mon.fightPosition();

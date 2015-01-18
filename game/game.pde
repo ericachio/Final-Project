@@ -52,6 +52,7 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     mon.action();
     game.encounter();
+
   }
 }
 
