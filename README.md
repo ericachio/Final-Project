@@ -25,3 +25,5 @@ Thursday, January 15: The encounter with monsters now lead to a new battle scree
 Friday, January 16: The battle screen contains option to attack, which does so arbitrarily, which will be fixed. Attack sprites are added and hp and skill set added too. 
 
 Saturday, January 17: The game works. The attack button works. The monsters change afer each attack. To do: randomize the appearance of monsters. Add items. Create a game over screen, if player has no more HP. See if the attack animations can be more delayed and played out. . . 
+
+Sunday, January 18: The levels are added up to 5. Randomized appearance of monsters. Game over screen. To Do: items/replenish HP, mana, special attacks. 
