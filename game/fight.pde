@@ -45,7 +45,11 @@ class fight {
 
   void hit(int skill) {
     damage = int(random(play.skill));
-    mon.monHP = mon.monHP - damage;
+    if (level == 6) {
+      dragon.bossHP = dragon.bossHP - damage;
+    } else {
+      mon.monHP = mon.monHP - damage;
+    }
     textSize(30);
     fill(225, 3, 3);
     if (damage == 0) {
@@ -59,7 +63,11 @@ class fight {
       steps4 = 0;
     }
     image(sword[steps4], 900, 400, 100, 100);
-    checkHP(mon.monHP);
+    if (level == 6) {
+      checkHP(dragon.bossHP);
+    } else {
+      checkHP(mon.monHP);
+    }
   }
 
   void getHit(int skill) {
@@ -86,7 +94,7 @@ class fight {
       position = 0;
       mon.monHP = 100;
       mon.typeM = random(3);
-      monKilled += 1;
+      monKilled += 1;  
     }
   }
 

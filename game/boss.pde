@@ -2,11 +2,11 @@ class boss extends monsters {
 
   PImage[] dragon; //for the different monsters
   PImage d;
-  int monHP, monSkill;
+  int bossHP, bossSkill, steps;
 
   void start() {   
-    monHP = 100;
-    monSkill = 50;
+    bossHP = 100;
+    bossSkill = 50;
     d = loadImage("dragon.png");
     dragon = new PImage[6];
     //80 pixels each. 51 high
@@ -27,4 +27,17 @@ class boss extends monsters {
       steps = 0;
     }
   }
+  void showHP() {
+    text("HP:", 1000, 50);
+    text(bossHP, 1050, 50);
+  }
+  void fightPosition() {
+    image(dragon[steps], 900, 350, 200, 200); 
+    steps ++;
+    if (steps >= dragon.length - 1) {
+      steps = 0;
+    }
+    showHP();
+  }
 }
+

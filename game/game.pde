@@ -129,6 +129,9 @@ void draw() {
     dragon.action();
     game.encounter();
     game.gameOver(play.HP);
+    if (monKilled == 1) {
+      menu.youWin();
+    }
   }
 }
 

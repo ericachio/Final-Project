@@ -78,9 +78,14 @@ class screens {
     clickAttack = new button(555, 150, 40, 20);
     clickAttack.display();
     fill(0);
+    if (level == 6) {
+      dragon.fightPosition();
+      dragon.showHP();
+    } else {
+      mon.showHP();
+      mon.fightPosition();
+    }
     play.showHP();
-    mon.showHP();
-    mon.fightPosition();
     play.fightPosition();
   }
 
@@ -90,6 +95,14 @@ class screens {
     textSize(50);
     textAlign(CENTER);
     text("GAME OVER", 575, 300);
+  }
+
+  void youWin() {
+    background(0);
+    fill(225);
+    textSize(50);
+    textAlign(CENTER);
+    text("You Win!", 575, 300);
   }
 }
 
