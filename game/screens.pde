@@ -83,8 +83,8 @@ class screens {
     mon.fightPosition();
     play.fightPosition();
   }
-  
-  void gameOver(){
+
+  void gameOver() {
     background(0);
     fill(225, 0, 0);
     textSize(50);

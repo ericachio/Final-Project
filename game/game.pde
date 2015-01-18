@@ -12,12 +12,14 @@ boolean inFight = false;
 boolean   inAttack = false;
 boolean leave = false;
 int monKilled;
+int monShow;
 
 player play;
 movement move;
 screens menu;
 monsters mon;
 fight game;
+boss dragon;
 
 void setup() { 
   size(1150, 650);
@@ -36,6 +38,9 @@ void setup() {
   mon.typeM = random(3);
   game = new fight();
   game.loadEffects();
+  monShow = 1;
+  dragon = new boss();
+  dragon.start();
 }
 
 
@@ -81,7 +86,7 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
-    text("Level 2", 575, 50); 
+    text("Level 3", 575, 50); 
     mon.monSkill = 15;
     mon.action();
     game.encounter();
@@ -95,7 +100,7 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
-    text("Level 2", 575, 50); 
+    text("Level 4", 575, 50); 
     mon.monSkill = 20;
     mon.action();
     game.encounter();
@@ -109,7 +114,7 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
-    text("Level 2", 575, 50); 
+    text("Level 5", 575, 50); 
     mon.monSkill = 25;
     mon.action();
     game.encounter();
@@ -118,6 +123,12 @@ void draw() {
       level += 1;
       monKilled = 0;
     }
+  } else if (level == 6) {
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);
+    dragon.action();
+    game.encounter();
+    game.gameOver(play.HP);
   }
 }
 
