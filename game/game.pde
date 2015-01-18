@@ -54,7 +54,7 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
-    text("Level 1", 575, 100); 
+    text("Level 1", 575, 50); 
     mon.action();
     game.encounter();
     game.gameOver(play.HP);
@@ -67,8 +67,50 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
-    text("Level 2", 575, 100); 
+    text("Level 2", 575, 50); 
     mon.monSkill = 10;
+    mon.action();
+    game.encounter();
+    game.gameOver(play.HP);
+    if (monKilled == 5) {
+      level += 1;
+      monKilled = 0;
+    }
+  } else if (level == 3) {
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    textAlign(CENTER);
+    textSize(30);
+    text("Level 2", 575, 50); 
+    mon.monSkill = 15;
+    mon.action();
+    game.encounter();
+    game.gameOver(play.HP);
+    if (monKilled == 5) {
+      level += 1;
+      monKilled = 0;
+    }
+  } else if (level == 4) {
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    textAlign(CENTER);
+    textSize(30);
+    text("Level 2", 575, 50); 
+    mon.monSkill = 20;
+    mon.action();
+    game.encounter();
+    game.gameOver(play.HP);
+    if (monKilled == 5) {
+      level += 1;
+      monKilled = 0;
+    }
+  } else if (level == 5) {
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    textAlign(CENTER);
+    textSize(30);
+    text("Level 2", 575, 50); 
+    mon.monSkill = 25;
     mon.action();
     game.encounter();
     game.gameOver(play.HP);
@@ -78,8 +120,6 @@ void draw() {
     }
   }
 }
-
-
 
 //to control actions of the character 
 void keyPressed() {
