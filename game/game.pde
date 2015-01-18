@@ -31,7 +31,6 @@ void setup() {
   menu.startMenu();
   move = new movement();
   mon = new monsters();
-  mon.typeM = random(3);
   mon.start();
   game = new fight();
   game.loadEffects();

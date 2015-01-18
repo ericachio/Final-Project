@@ -10,6 +10,7 @@ class monsters {
   void start() {   
     monHP = 100;
     monSkill = 5;
+    typeM = random(3);
     if (typeM < 1) {
       scake = loadImage("strawberrycake.png");
       walk = new PImage[13];
