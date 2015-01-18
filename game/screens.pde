@@ -84,6 +84,12 @@ class screens {
     play.fightPosition();
   }
   
-  
+  void gameOver(){
+    background(0);
+    fill(225, 0, 0);
+    textSize(50);
+    textAlign(CENTER);
+    text("GAME OVER", 575, 300);
+  }
 }
 

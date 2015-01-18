@@ -77,7 +77,7 @@ class fight {
     if (steps3 >= hit.length - 1) {
       steps3 = 0;
     }
-    checkHP(play.HP);
+    gameOver(play.HP);
   }
 
   void checkHP(int HP) {
@@ -85,24 +85,19 @@ class fight {
       inFight = false;
       position = 0;
       mon.monHP = 100;
+      mon.typeM = random(3);
+      monKilled += 1;
+    }
+  }
+
+  void gameOver (int HP) {
+    if (HP <= 0) {
+      inFight = false;
+      menu.gameOver();
     }
   }
 
   void loadEffects() {
-    at = loadImage("playerattack.png");
-    attack = new PImage[7];
-    //276 across, 444 high
-    for (int i = 0; i < 7; i++) {
-      attack[i] = at.get(size1, 0, 276, 148);
-      size1 += 270;
-      if (i > 2 && i < 6) {
-        attack[i] = at.get(size2, 148, 276, 148);
-        size2 += 276;
-      } else if (i == 6) {
-        attack[i] = at.get(0, 296, 276, 148);
-      }
-    }
-    size1 = 0;
     hi = loadImage("playerhit.png");
     hit = new PImage[4];
     //153 across, 134 high

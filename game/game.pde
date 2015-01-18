@@ -11,6 +11,7 @@ PImage boy, girl;
 boolean inFight = false;
 boolean   inAttack = false;
 boolean leave = false;
+int monKilled;
 
 player play;
 movement move;
@@ -31,7 +32,8 @@ void setup() {
   menu.startMenu();
   move = new movement();
   mon = new monsters();
-  mon.start();
+  mon.loadMonsters();
+  mon.typeM = random(3);
   game = new fight();
   game.loadEffects();
 }
@@ -50,8 +52,30 @@ void draw() {
     //to loop background;
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    textAlign(CENTER);
+    textSize(30);
+    text("Level 1", 575, 100); 
     mon.action();
     game.encounter();
+    game.gameOver(play.HP);
+    if (monKilled == 5) {
+      level += 1;
+      monKilled = 0;
+    }
+  } else if (level == 2) {
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+    textAlign(CENTER);
+    textSize(30);
+    text("Level 2", 575, 100); 
+    mon.monSkill = 10;
+    mon.action();
+    game.encounter();
+    game.gameOver(play.HP);
+    if (monKilled == 5) {
+      level += 1;
+      monKilled = 0;
+    }
   }
 }
 
