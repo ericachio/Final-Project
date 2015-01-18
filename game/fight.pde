@@ -54,6 +54,7 @@ class fight {
       if (i > 2 && i < 6) {
         attack[i] = at.get(size2, 148, 276, 148);
         size2 += 276;
+      if(i>2){delay(10000);} //tryna figure out how to slow down the attack
       } else if (i == 6) {
         attack[i] = at.get(0, 296, 276, 148);
       }
