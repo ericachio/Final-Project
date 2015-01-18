@@ -23,3 +23,5 @@ Wednesday, January 14: The monster class is up and running and is matched with t
 Thursday, January 15: The encounter with monsters now lead to a new battle screen with the button start. There is to be a menu in which the player can choose to attack. Perhaps a sprite with fighting for the characters needs to be found? 
 
 Friday, January 16: The battle screen contains option to attack, which does so arbitrarily, which will be fixed. Attack sprites are added and hp and skill set added too. 
+
+Saturday, January 17: The game works. The attack button works. The monsters change afer each attack. To do: randomize the appearance of monsters. Add items. Create a game over screen, if player has no more HP. See if the attack animations can be more delayed and played out. . . 
