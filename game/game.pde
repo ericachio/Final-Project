@@ -9,7 +9,9 @@ int level;
 boolean check = false;
 PImage boy, girl;
 boolean inFight = false;
-boolean   inAttack = false;;
+boolean   inAttack = false;
+boolean leave = false;
+;
 
 player play;
 movement move;
@@ -52,7 +54,6 @@ void draw() {
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     mon.action();
     game.encounter();
-
   }
 }
 
@@ -67,7 +68,7 @@ void keyPressed() {
       moveRight = true;
     } else if (keyCode == UP) {
       moveUp = true;
-    } 
+    }
   }
 }
 

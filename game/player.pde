@@ -4,7 +4,7 @@ class player {
   PImage a, b, c; //for the different states of character
   float gender; //for when there is the option of choosing gender
   int size; //set to load character into arrays
-  float HP, skill; //
+  int HP, skill; //
 
   void start() {
     HP = 100;
