@@ -6,9 +6,6 @@ class fight {
   int size1, size2, size3, steps2, steps3, steps4;
   int damage;
   int monAttack;
-  boolean leave = false;
-
-
 
   void encounter() {
     if (position < 650 && position > 100) {

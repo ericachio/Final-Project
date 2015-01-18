@@ -11,7 +11,6 @@ PImage boy, girl;
 boolean inFight = false;
 boolean   inAttack = false;
 boolean leave = false;
-;
 
 player play;
 movement move;

@@ -62,10 +62,7 @@ class screens {
     textSize(30);
     text("You've Encountered A Monster!", 575, 100); 
     textSize(15);
-    clickStart = new button(555, 125, 110, 20);
-    fill(0,0,0);
-    text("Click to start your battle", 600, 120);
-    textSize(5);
+    clickStart = new button(555, 125, 40, 20);
     clickStart.display();
     fill(0);
   }
@@ -78,9 +75,7 @@ class screens {
     textSize(30);
     text("What are you going to do?", 575, 125);
     textSize(15);
-    clickAttack = new button(550, 150, 40, 20);
-    fill(0,0,0);
-    text("Attack!",570,140);
+    clickAttack = new button(555, 150, 40, 20);
     clickAttack.display();
     fill(0);
     play.showHP();
