@@ -13,7 +13,7 @@ boolean   inAttack = false;
 boolean leave = false;
 int monKilled;
 int monShow;
-
+boolean toRestart = false;
 
 player play;
 movement move;
@@ -57,6 +57,7 @@ void draw() {
     textSize(30);
     text("Level "+""+level, 575, 50); 
   if (level == 0) { //start screen
+   menu.startMenu();
     update1(mouseX, mouseY);
     menu.clickGirl.display();
     menu.clickBoy.display();
@@ -129,7 +130,7 @@ void update1(int x, int y) {
       level += 1;
     }
   }
-}
+} 
 
 //to start game
 void update2(int x, int y) {
@@ -156,5 +157,21 @@ void update3(int x, int y) {
       inAttack = true;
     }
   }
+  
 }
+//to restart the game
+void update4(int x, int y){
+  if(check== false){
+    menu.clickRestart.update();
+  }
+  else{
+    check=false;
+  }
+  if (mousePressed){
+    if(menu.clickRestart.pressed()){
+      toRestart=true;
+    }
+    }
+}
+        
 
