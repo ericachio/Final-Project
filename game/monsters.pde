@@ -9,7 +9,7 @@ class monsters {
   int monHP, monSkill, steps4;
 
   void action() {
-    if (typeM ==0) {
+    if (typeM ==0||typeM==4) {
       image(type1[steps], position, 350, 200, 200); 
       steps ++;
       if (steps == type1.length - 1) {
@@ -17,7 +17,7 @@ class monsters {
       }
     }
     steps = 0;
-    if (typeM ==3) {
+    if (typeM ==3|| typeM==5) {
       image(type2[steps], position, 350, 200, 200); 
       steps ++;
       if (steps == type2.length - 1) {
@@ -79,14 +79,14 @@ class monsters {
         steps = 0;
       }
     }
-    if (typeM == 3) {
+    if (typeM == 3||typeM==5) {
       image(type2[steps], 900, 350, 200, 200); 
       steps ++;
       if (steps >= type2.length - 1) {
         steps = 0;
       }
     }
-    if (typeM ==2) {
+    if (typeM ==2||typeM==4) {
       image(type3[steps], 900, 350, 200, 200); 
       steps ++;
       if (steps >= type3.length - 1) {
