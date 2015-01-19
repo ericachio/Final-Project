@@ -14,6 +14,7 @@ boolean leave = false;
 int monKilled;
 int monShow;
 
+
 player play;
 movement move;
 screens menu;
@@ -28,14 +29,14 @@ void setup() {
   frameRate(10);
   background = loadImage("background.png");
   image(background, 0, 0);
-  level = 0;
+  
   play = new player();
   menu = new screens();
   menu.startMenu();
   move = new movement();
   mon = new monsters();
   mon.loadMonsters();
-  mon.typeM = random(3);
+  mon.typeM = level;
   game = new fight();
   game.loadEffects();
   monShow = 1;
@@ -45,6 +46,12 @@ void setup() {
 
 
 void draw() {
+ //to loop background;
+    image(background, int(position), 0);
+    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
+ textAlign(CENTER);
+    textSize(30);
+    text("Level "+""+level, 575, 50); 
   if (level == 0) { //start screen
     update1(mouseX, mouseY);
     menu.clickGirl.display();
@@ -53,87 +60,27 @@ void draw() {
     boy = loadImage("boystanding.png");
     image(girl, 505, 155);
     image(boy, 615, 155);
-  } else if (level == 1) {
-    //to loop background;
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    textAlign(CENTER);
-    textSize(30);
-    text("Level 1", 575, 50); 
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if (monKilled == 5) {
-      level += 1;
-      monKilled = 0;
-    }
-  } else if (level == 2) {
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    textAlign(CENTER);
-    textSize(30);
-    text("Level 2", 575, 50); 
-    mon.monSkill = 10;
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if (monKilled == 5) {
-      level += 1;
-      monKilled = 0;
-    }
-  } else if (level == 3) {
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    textAlign(CENTER);
-    textSize(30);
-    text("Level 3", 575, 50); 
-    mon.monSkill = 15;
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if (monKilled == 5) {
-      level += 1;
-      monKilled = 0;
-    }
-  } else if (level == 4) {
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    textAlign(CENTER);
-    textSize(30);
-    text("Level 4", 575, 50); 
-    mon.monSkill = 20;
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if (monKilled == 5) {
-      level += 1;
-      monKilled = 0;
-    }
-  } else if (level == 5) {
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
-    textAlign(CENTER);
-    textSize(30);
-    text("Level 5", 575, 50); 
-    mon.monSkill = 25;
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if (monKilled == 5) {
-      level += 1;
-      monKilled = 0;
-    }
-  } else if (level == 6) {
-    image(background, int(position), 0);
-    image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);
+  } else{
+   if(level==6){
+
     dragon.action();
     game.encounter();
     game.gameOver(play.HP);
-    if (monKilled == 1) {
-      menu.youWin();
+    if (mon.monHP<=0) {
+      menu.youWin();  
     }
-  }
 }
+else{ 
+    mon.action();
+    game.encounter();
+    game.gameOver(play.HP);
+  if (mon.monHP==0) {
+      level += 1;
+      monKilled = 0;
+    }
+
+}}}
+
 
 //to control actions of the character 
 void keyPressed() {
