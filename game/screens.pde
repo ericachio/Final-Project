@@ -10,6 +10,7 @@ class screens {
   button clickBoy;
   button clickStart;
   button clickAttack;
+  button clickRestart;
 
   void update() {
     if (over()) {
@@ -42,8 +43,9 @@ class screens {
   }
   void startMenu() {
     textAlign(CENTER);
+    fill(0);
     textSize(30);
-    text("Start Game", 575, 100); 
+    text("Save the forest from the monsters!", 550, 100); 
     textSize(15);
     text("Pick Your Character:", 575, 125);
     clickGirl = new button(500, 150, 40, 40);
@@ -53,7 +55,8 @@ class screens {
     image(girl, 510, 155);
     image(boy, 620, 155);
     clickBoy = new button(610, 150, 40, 40);
-    clickBoy.display();
+    clickBoy.display(); 
+ 
   }
 
   void startFight() {
@@ -65,11 +68,18 @@ class screens {
     clickStart = new button(555, 125, 40, 20);
     clickStart.display();
     fill(0);
+    textSize(15);
+    clickRestart= new button(0,0, 40, 20);
+    clickRestart.display();
   }
 
   void fightScreen() {
     background = loadImage("background.png");
     image(background, 0, 0);
+    fill(0);
+    textSize(15);
+    clickRestart= new button(0,0, 40, 20);
+    clickRestart.display();
     textAlign(CENTER);
     fill(0);
     textSize(30);
@@ -103,6 +113,10 @@ class screens {
     textSize(50);
     textAlign(CENTER);
     text("You Win!", 575, 300);
+
   }
+
+
 }
+
 
