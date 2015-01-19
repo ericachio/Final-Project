@@ -1,4 +1,4 @@
-class fight {
+class fight{
 
   boolean meet = false;
   PImage[] attack, hit, sword;
@@ -10,6 +10,19 @@ class fight {
   void encounter() {
     if (position < 650 && position > 100) {
       menu.startFight();
+   
+    update4(mouseX, mouseY);
+      menu.clickRestart.display();
+      fill(0,0,0);
+      text("Restart", 0,0);
+     
+      if(toRestart==true){
+        level=0;
+       draw();
+      
+       //RESTART BUTTON RESETS. but then when choosing a character the game doesnt go on
+    }
+   
       update2(mouseX, mouseY);
       menu.clickStart.display();
       fill(0);
@@ -88,13 +101,16 @@ class fight {
     gameOver(play.HP);
   }
 
-  void checkHP(int HP) {
+  void checkHP(int HP) {                    //CONFUSED HERE
     if (HP <= 0) {
+      level+=1;
       inFight = false;
       position = 0;
-      mon.monHP = 100;
-      mon.typeM = random(3);
-      monKilled += 1;  
+      mon.typeM = level;
+      monKilled += 1;
+      mon.monHP=100;
+      
+      
     }
   }
 
