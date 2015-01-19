@@ -5,11 +5,11 @@ class monsters {
   PImage scake, ccake, oox; //for the different monsters
   PImage d;
   int size1, size2, steps; //set to load character into arrays
-  float typeM;
+  int typeM=level;
   int monHP, monSkill, steps4;
 
   void action() {
-    if (typeM < 1) {
+    if (typeM ==0) {
       image(type1[steps], position, 350, 200, 200); 
       steps ++;
       if (steps == type1.length - 1) {
@@ -17,7 +17,7 @@ class monsters {
       }
     }
     steps = 0;
-    if (typeM >= 1 && typeM < 2) {
+    if (typeM ==3) {
       image(type2[steps], position, 350, 200, 200); 
       steps ++;
       if (steps == type2.length - 1) {
@@ -25,7 +25,7 @@ class monsters {
       }
     }
     steps = 0;
-    if (typeM >= 2 && typeM < 3) {
+    if (typeM ==2) {
       image(type3[steps], position, 350, 200, 200); 
       steps ++;
       if (steps == type3.length - 1) {
@@ -48,7 +48,7 @@ class monsters {
         size2 += 87;
       }
     }
-    size1 = 0;
+    size1 = 0; 
     size2 = 0;
     ccake = loadImage("chocolatecake.png");
     type2 = new PImage[10];
@@ -72,21 +72,21 @@ class monsters {
   }
 
   void fightPosition() {
-    if (typeM < 1) {
+    if (typeM ==0) {
       image(type1[steps], 900, 350, 200, 200); 
       steps ++;
       if (steps >= type1.length - 1) {
         steps = 0;
       }
     }
-    if (typeM >= 1 && typeM < 2) {
+    if (typeM == 3) {
       image(type2[steps], 900, 350, 200, 200); 
       steps ++;
       if (steps >= type2.length - 1) {
         steps = 0;
       }
     }
-    if (typeM >= 2 && typeM < 3) {
+    if (typeM ==2) {
       image(type3[steps], 900, 350, 200, 200); 
       steps ++;
       if (steps >= type3.length - 1) {
