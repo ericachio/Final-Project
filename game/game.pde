@@ -46,10 +46,14 @@ void setup() {
 
 
 void draw() {
+  if (level==7) {
+      menu.youWin();  
+    }
+    else{
  //to loop background;
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
- textAlign(CENTER);
+    textAlign(CENTER);
     textSize(30);
     text("Level "+""+level, 575, 50); 
   if (level == 0) { //start screen
@@ -66,9 +70,7 @@ void draw() {
     dragon.action();
     game.encounter();
     game.gameOver(play.HP);
-    if (mon.monHP<=0) {
-      menu.youWin();  
-    }
+    
 }
 else{ 
     mon.action();
@@ -76,10 +78,10 @@ else{
     game.gameOver(play.HP);
   if (mon.monHP==0) {
       level += 1;
-      monKilled = 0;
+      monKilled +=1;
     }
 
-}}}
+}}}}
 
 
 //to control actions of the character 
