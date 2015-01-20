@@ -43,12 +43,17 @@ class player {
   }
 
   void fightPosition() {
-    image(a, 100, 450, 75, 75);
+      if(SpAtk==true){
+  image(a,100,450,125,125);          //why doesnt this work???????????
   }
+  else{
+    image(a, 100, 450, 75, 75);}
+
+}
 
   void showHP() {
     text("HP:", 50, 50);
     text(HP, 100, 50);
   }
-}
 
+}
