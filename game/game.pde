@@ -14,6 +14,7 @@ boolean leave = false;
 int monKilled;
 int monShow;
 boolean toRestart = false;
+boolean SpAtk= false;
 
 player play;
 movement move;
@@ -172,6 +173,18 @@ void update4(int x, int y){
       toRestart=true;
     }
     }
+}
+
+//for specialattack
+void update5(int x, int y){
+  if(check==false){
+    menu.clickSpecialAttack.update();
+  }
+  else{check= false;}
+  if(mousePressed){
+    if(menu.clickSpecialAttack.pressed()&&mon.monHP<=50){
+      SpAtk=true;}
+  }
 }
         
 
