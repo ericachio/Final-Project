@@ -11,6 +11,7 @@ class screens {
   button clickStart;
   button clickAttack;
   button clickRestart;
+  button clickSpecialAttack;
 
   void update() {
     if (over()) {
@@ -88,6 +89,9 @@ class screens {
     clickAttack = new button(555, 150, 40, 20);
     clickAttack.display();
     fill(0);
+    textSize(15);
+    clickSpecialAttack= new button(600, 150, 120, 20);
+    clickSpecialAttack.display();
     if (level == 6) {
       dragon.fightPosition();
       dragon.showHP();
