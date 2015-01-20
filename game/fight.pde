@@ -53,7 +53,30 @@ class fight{
         getHit(mon.monSkill);
       }
     }
-    currentSpot = position;
+    update5(mouseX, mouseY);                      //SLOW DOWN SPECIAL ATTACK USING MILLIS and the resize animation doesnt show
+    menu.clickSpecialAttack.display();
+    textSize(12);
+    fill(0);
+    text("Special Attack!", 650, 165);
+    if(SpAtk==true){
+    textSize(25);
+    fill(225, 3, 3);
+    text("SPECIAL ATTACK!", 800,300);
+  image(sword[steps4], 950, 450, 100, 100);
+    steps4 ++;
+    if (steps4 >= sword.length - 1) {
+      steps4 = 0;
+    }
+    image(sword[steps4], 900, 400, 100, 100);
+
+    mon.monHP=0;
+    SpAtk=false;
+    checkHP(mon.monHP);
+  }
+  
+  
+    currentSpot = position;  
+    
   }
 
   void hit(int skill) {
@@ -101,7 +124,7 @@ class fight{
     gameOver(play.HP);
   }
 
-  void checkHP(int HP) {                    //CONFUSED HERE
+  void checkHP(int HP) {                    
     if (HP <= 0) {
       level+=1;
       inFight = false;
