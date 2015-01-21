@@ -78,6 +78,12 @@ else{
     mon.action();
     game.encounter();
     game.gameOver(play.HP);
+    if(level==3){
+      textSize(14);
+      fill(0);
+      
+      text("You're halfway through! You deserve more healthpoints!", 200,90);
+      play.HP=100;}
   if (mon.monHP==0) {
       level += 1;
       monKilled +=1;
