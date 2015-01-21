@@ -1,5 +1,5 @@
 class button extends screens {
-  
+
   button(int ix, int iy, int iwidth, int iheight) {
     x = ix;
     y = iy;
