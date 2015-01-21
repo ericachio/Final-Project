@@ -1,4 +1,4 @@
-class fight{
+class fight {
 
   boolean meet = false;
   PImage[] attack, hit, sword;
@@ -6,38 +6,26 @@ class fight{
   int size1, size2, size3, steps2, steps3, steps4;
   int damage;
   int monAttack;
+  boolean spAttacked=false;
 
   void encounter() {
     if (position < 650 && position > 100) {
       menu.startFight();
-   
-    update4(mouseX, mouseY);
-      menu.clickRestart.display();
-      textSize(12);
-      fill(0);
-      text("Restart", 0,0);
+
      
-      if(toRestart==true){
-        level=0;
-       draw();
-       
+        update2(mouseX, mouseY);
+        menu.clickStart.display();
+        fill(0);
+        text("Start", 575, 140);
+        move.stop();
+        if (inFight == true) {
+          battle();
+        }
       
-       //RESTART BUTTON RESETS. but then when choosing a character the game doesnt go on
-    }
-   
-      update2(mouseX, mouseY);
-      menu.clickStart.display();
-      fill(0);
-      text("Start", 575, 140);
-      move.stop();
-      if (inFight == true) {
-        battle();
-      }
     } else {
       move.action();
     }
   }
-
   void battle() {
     menu.fightScreen();
     update3(mouseX, mouseY);
@@ -55,35 +43,38 @@ class fight{
         getHit(mon.monSkill);
       }
     }
-    update5(mouseX, mouseY);                      //SLOW DOWN SPECIAL ATTACK USING MILLIS and the resize animation doesnt show
+    update5(mouseX, mouseY);                     
     menu.clickSpecialAttack.display();
     textSize(12);
     fill(0);
     text("Special Attack!", 650, 165);
-    if(SpAtk==true){
-    int now= millis();
-    textSize(25);
-    fill(225, 3, 3);
-    text("SPECIAL ATTACK!", 800,300);
-  
-  image(sword[steps4],950, 450, 200, 200);
-    steps4 ++;
-  
- 
-    if (steps4 >= sword.length - 1) {
-      steps4 = 0;
+    if (SpAtk==true) {
+
+      textSize(25);
+      fill(255, 0, 0);
+      text("SPECIAL ATTACK!", 700, 300);
+      delay(2000);
+      image(sword[steps4], 950, 450, 300, 200);
+      steps4 ++;
+      if (steps4 >= sword.length - 1) {
+        steps4 = 0;
+      }
+      image(sword[steps4], 900, 400, 200, 100);
+      image(sword[steps4], 950, 400, 200, 100);
+      spAttacked=true;
+
+      specialAttackd();
     }
-    image(sword[steps4], 900, 400, 100, 100);
-  
-    mon.monHP=0;
-    SpAtk=false;
-    checkHP(mon.monHP);
-  
-  
+    currentSpot = position;
+  }
+
+  void specialAttackd() {
+    if (SpAtk==true&&spAttacked==true) {
+
+      mon.monHP=0;
+      SpAtk=false;
+      checkHP(mon.monHP);
     }
-  
-    currentSpot = position;  
-    
   }
 
   void hit(int skill) {
@@ -139,8 +130,6 @@ class fight{
       mon.typeM = level;
       monKilled += 1;
       mon.monHP=100;
-      
-      
     }
   }
 
