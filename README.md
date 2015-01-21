@@ -27,3 +27,13 @@ Friday, January 16: The battle screen contains option to attack, which does so a
 Saturday, January 17: The game works. The attack button works. The monsters change afer each attack. To do: randomize the appearance of monsters. Add items. Create a game over screen, if player has no more HP. See if the attack animations can be more delayed and played out. . . 
 
 Sunday, January 18: The levels are added up to 5. Randomized appearance of monsters. Game over screen. To Do: items/replenish HP, mana, special attacks. 
+
+Sunday, January 18: Made each monster a separate level and made the level update.Made a specific order for the monsters instead of making it random (making it random lead to the same monster repeating throughout the game). added monsters for level 4 and 5 because they didn't show up when i tested it. Also fixed the code so that the end screen showed up in the end because it didn't when i tested it. 
+
+Monday, January 19: Added a special attack button that works once the monster the player is facing has half of its life left. With special attack the player can kill the monster with one click. Tried to add a restart button. Although it brings back the start screen, if you try to choose a player, it doesn't work correctly.
+
+Tuesday, January 20: Added instructions at the beginning of the game. Added a health reward at the beginning of level 3. I just attempted to add animation for specialattack and add a restart button for the past 4 hours. I ended up erasing all the restart stuff for the final version for tonight because I don't want anything faulty to be in the game.
+
+The game works and runs smoothly. 
+
+ 
