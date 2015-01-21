@@ -13,12 +13,14 @@ class fight{
    
     update4(mouseX, mouseY);
       menu.clickRestart.display();
-      fill(0,0,0);
+      textSize(12);
+      fill(0);
       text("Restart", 0,0);
      
       if(toRestart==true){
         level=0;
        draw();
+       
       
        //RESTART BUTTON RESETS. but then when choosing a character the game doesnt go on
     }
@@ -59,21 +61,26 @@ class fight{
     fill(0);
     text("Special Attack!", 650, 165);
     if(SpAtk==true){
+    int now= millis();
     textSize(25);
     fill(225, 3, 3);
     text("SPECIAL ATTACK!", 800,300);
-  image(sword[steps4], 950, 450, 100, 100);
+  
+  image(sword[steps4],950, 450, 200, 200);
     steps4 ++;
+  
+ 
     if (steps4 >= sword.length - 1) {
       steps4 = 0;
     }
     image(sword[steps4], 900, 400, 100, 100);
-
+  
     mon.monHP=0;
     SpAtk=false;
     checkHP(mon.monHP);
-  }
   
+  
+    }
   
     currentSpot = position;  
     
