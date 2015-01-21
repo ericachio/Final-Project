@@ -45,10 +45,14 @@ class screens {
   void startMenu() {
     textAlign(CENTER);
     fill(0);
-    textSize(30);
-    text("Save the forest from the monsters!", 550, 100); 
     textSize(15);
-    text("Pick Your Character:", 575, 125);
+    text("Save the forest from the monsters!",550,80);
+    textSize(12);
+    fill(255,255,255);
+    text("Use the arrow keys on your keyboard to move forward and backward. \n Once a monster has reached half of its life, you can use the special attack button to kill the monster in one blow!", 560, 90); 
+    textSize(15);
+    fill(0);
+    text("Pick Your Character:", 570, 125);
     clickGirl = new button(500, 150, 40, 40);
     clickGirl.display();
     girl = loadImage("girlstanding.png");
