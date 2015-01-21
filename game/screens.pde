@@ -46,10 +46,10 @@ class screens {
     textAlign(CENTER);
     fill(0);
     textSize(15);
-    text("Save the forest from the monsters!",550,80);
+    text("Save the forest from the monsters!", 550, 80);
     textSize(12);
-    fill(255,255,255);
-    text("Use the arrow keys on your keyboard to move forward and backward. \n Once a monster has reached half of its life, you can use the special attack button to kill the monster in one blow!", 560, 90); 
+    fill(255, 255, 255);
+    text("Use the arrow keys on your keyboard to move forward and backward. \n Once a monster has reached half of its life, you can use the special attack button to kill the monster with one click!", 560, 90); 
     textSize(15);
     fill(0);
     text("Pick Your Character:", 570, 125);
@@ -60,8 +60,7 @@ class screens {
     image(girl, 510, 155);
     image(boy, 620, 155);
     clickBoy = new button(610, 150, 40, 40);
-    clickBoy.display(); 
- 
+    clickBoy.display();
   }
 
   void startFight() {
@@ -72,19 +71,12 @@ class screens {
     textSize(15);
     clickStart = new button(555, 125, 40, 20);
     clickStart.display();
-    fill(0);
-    textSize(15);
-    clickRestart= new button(0,0, 40, 20);
-    clickRestart.display();
+    
   }
 
   void fightScreen() {
     background = loadImage("background.png");
     image(background, 0, 0);
-    fill(0);
-    textSize(15);
-    clickRestart= new button(0,0, 40, 20);
-    clickRestart.display();
     textAlign(CENTER);
     fill(0);
     textSize(30);
@@ -121,10 +113,6 @@ class screens {
     textSize(50);
     textAlign(CENTER);
     text("You Win!", 575, 300);
-
   }
-
-
 }
-
 

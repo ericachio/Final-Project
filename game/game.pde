@@ -30,7 +30,7 @@ void setup() {
   frameRate(10);
   background = loadImage("background.png");
   image(background, 0, 0);
-  
+
   play = new player();
   menu = new screens();
   menu.startMenu();
@@ -48,48 +48,48 @@ void setup() {
 
 void draw() {
   if (level==7) {
-      menu.youWin();  
-    }
-    else{
- //to loop background;
+    menu.youWin();
+  } else {
+    //to loop background;
     image(background, int(position), 0);
     image(background.get(background.width-int(position), 0, int(position), background.height), 0, 0);  
     textAlign(CENTER);
     textSize(30);
     text("Level "+""+level, 575, 50); 
-  if (level == 0) { //start screen
-   menu.startMenu();
-    update1(mouseX, mouseY);
-    menu.clickGirl.display();
-    menu.clickBoy.display();
-    girl = loadImage("girlstanding.png");
-    boy = loadImage("boystanding.png");
-    image(girl, 505, 155);
-    image(boy, 615, 155);
-  } else{
-   if(level==6){
+    if (level == 0) { //start screen
+      menu.startMenu();
+      update1(mouseX, mouseY);
+      menu.clickGirl.display();
+      menu.clickBoy.display();
+      girl = loadImage("girlstanding.png");
+      boy = loadImage("boystanding.png");
+      image(girl, 505, 155);
+      image(boy, 615, 155);
+    } else {
+      if (level==6) {
 
-    dragon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    
-}
-else{ 
-    mon.action();
-    game.encounter();
-    game.gameOver(play.HP);
-    if(level==3){
-      textSize(14);
-      fill(0);
-      
-      text("You're halfway through! You deserve more healthpoints!", 200,90);
-      play.HP=100;}
-  if (mon.monHP==0) {
-      level += 1;
-      monKilled +=1;
+        dragon.action();
+        game.encounter();
+        game.gameOver(play.HP);
+      } else { 
+        mon.action();
+        game.encounter();
+        game.gameOver(play.HP);
+        if (level==3) {
+          textSize(14);
+          fill(0);
+
+          text("You're halfway through! You deserve more \n healthpoints!", 200, 90);
+          play.HP=100;
+        }
+        if (mon.monHP==0) {
+          level += 1;
+          monKilled +=1;
+        }
+      }
     }
-
-}}}}
+  }
+}
 
 
 //to control actions of the character 
@@ -164,33 +164,32 @@ void update3(int x, int y) {
       inAttack = true;
     }
   }
-  
 }
-//to restart the game
-void update4(int x, int y){
-  if(check== false){
+
+void update4(int x, int y) {
+  if (check== false) {
     menu.clickRestart.update();
-  }
-  else{
+  } else {
     check=false;
   }
-  if (mousePressed){
-    if(menu.clickRestart.pressed()){
+  if (mousePressed) {
+    if (menu.clickRestart.pressed()) {
       toRestart=true;
     }
-    }
+  }
 }
 
 //for specialattack
-void update5(int x, int y){
-  if(check==false){
+void update5(int x, int y) {
+  if (check==false && mon.monHP<=50) {
     menu.clickSpecialAttack.update();
+  } else {
+    check= false;
   }
-  else{check= false;}
-  if(mousePressed){
-    if(menu.clickSpecialAttack.pressed()&&mon.monHP<=50){
-      SpAtk=true;}
+  if (mousePressed) {
+    if (menu.clickSpecialAttack.pressed()&&mon.monHP<=50) {
+      SpAtk=true;
+    }
   }
 }
-        
 

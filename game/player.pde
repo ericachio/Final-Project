@@ -15,7 +15,7 @@ class player {
       c = loadImage("boyleft.png");
       right = new PImage[3];
       for (int i = 0; i < 3; i++) {
-        right[i] = b.get(size, 0, 31, 32);
+        right[i] = b.get (size, 0, 31, 32);
         size += 30;
       }
       size = 0;
@@ -43,17 +43,14 @@ class player {
   }
 
   void fightPosition() {
-      if(SpAtk==true){
-  image(a,100,450,125,125);          //why doesnt this work???????????
+   
+      image(a, 100, 450, 75, 75);
+    
   }
-  else{
-    image(a, 100, 450, 75, 75);}
-
-}
 
   void showHP() {
     text("HP:", 50, 50);
     text(HP, 100, 50);
   }
-
 }
+
